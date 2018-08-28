@@ -40,7 +40,9 @@ public class GeneratorSwaggerAnnotation extends PluginAdapter {
         //判断注解字段是否需要添加注释字段
         String addRemarks = properties.getProperty("addRemarks");
         if (trueString.equals(addRemarks)) {
-            propertyAnnotation.append(introspectedColumn.getRemarks());
+            //过滤掉特殊字符,如换行
+            String regex = "\\n";
+            propertyAnnotation.append(StringUtils.replaceAll(introspectedColumn.getRemarks(),regex," "));
         }
 
 
