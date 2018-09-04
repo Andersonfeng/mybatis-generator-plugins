@@ -11,7 +11,6 @@ import java.util.List;
 
 /**
  * @author fengky
- * @date 2018/08/27 10:41
  */
 public class GeneratorSwaggerAnnotation extends PluginAdapter {
 
