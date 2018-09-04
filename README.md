@@ -8,11 +8,11 @@
     - 使用方法
         - 在maven build-plugins-plugin中加入依赖
             ```xml
-            <dependency>
-                <groupId>mybatis-generator-plugins</groupId>
-                <artifactId>com.github.andersonfeng.mybatis-generator-plugins</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
+                <dependency>
+                    <groupId>io.github.andersonfeng</groupId>
+                    <artifactId>com.github.andersonfeng.mybatis-generator-plugins</artifactId>
+                    <version>1.0</version>
+                </dependency>
             ```
         - 在generatorConfig.xml中配置插件
             ```xml
