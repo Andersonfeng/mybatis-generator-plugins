@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author fengky
  * <p>
- * remove getter & setter function
+ * remove getter and setter function
  */
 public class GeneratorIgnoreGetter extends PluginAdapter {
 

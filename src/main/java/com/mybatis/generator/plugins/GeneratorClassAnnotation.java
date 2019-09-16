@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author fengky
  * <p>
- * generator class annotation & solve dependency
+ * generator class annotation and solve dependency
  */
 public class GeneratorClassAnnotation extends PluginAdapter {
     public boolean validate(List<String> list) {

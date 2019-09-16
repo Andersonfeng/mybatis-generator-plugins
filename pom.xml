@@ -6,8 +6,11 @@
 
     <groupId>io.github.andersonfeng</groupId>
     <artifactId>com.github.andersonfeng.mybatis-generator-plugins</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
+    <name>andersonfeng-mybatis-generator-plugins</name>
+    <description>mybatis generator plugins</description>
+    <url>https://github.com/Andersonfeng/mybatis-generator-plugins</url>
 
     <licenses>
         <license>
@@ -76,7 +79,38 @@
             <id>release</id>
             <build>
                 <plugins>
+                    <!--javadoc-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                                <configuration>
+                                    <additionalparam>-Xdoclint:none</additionalparam>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
 
+                    <!--java source-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
                     <!--使用Nexus Staging Maven插件将Maven配置为部署到OSSRH Nexus Repository Manager-->
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
