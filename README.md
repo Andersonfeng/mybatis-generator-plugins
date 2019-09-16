@@ -11,10 +11,10 @@
                 <dependency>
                     <groupId>io.github.andersonfeng</groupId>
                     <artifactId>com.github.andersonfeng.mybatis-generator-plugins</artifactId>
-                    <version>1.0</version>
+                    <version>1.1</version>
                 </dependency>
             ```
-        - 在generatorConfig.xml中配置插件
+        - 在generatorConfig.xml中配置swagger插件
             ```xml
             <!--自动为entity生成swagger2文档-->
             <plugin type="com.mybatis.generator.plugins.GeneratorSwaggerAnnotation">
@@ -28,6 +28,10 @@
             ```
         - 生成结果
             ```java
+            import io.swagger.annotations.ApiModel;
+            import io.swagger.annotations.ApiModelProperty;
+            ...
+  
             @ApiModel(value="com.generator.Vote")
             @Table(name = "vt_vote")
             public class Vote {
@@ -38,4 +42,40 @@
                 @GeneratedValue(strategy = GenerationType.IDENTITY)
                 @ApiModelProperty(value="id自增id")
                 private Integer id;
-            ```
+            ```            
+- GeneratorClassAnnotation
+    - 在generatorConfig.xml中配置类注解插件
+        ```xml    
+            <!--添加类注解和依赖-->
+            <plugin type="com.mybatis.generator.plugins.GeneratorClassAnnotation">
+                <property name="Data" value="lombok.Data"/>
+                <property name="ToString" value="lombok.ToString"/>
+            </plugin>
+        ```
+    - 生成结果
+        ```java            
+        import java.io.Serializable;
+        import java.util.Date;
+        import javax.persistence.*;
+        import lombok.Data;
+        import lombok.ToString;
+        ...            
+        
+        @Data
+        @ToString
+        @Table(name = "news")
+        public class TouTiaoNews implements Serializable {...}
+        ```
+- GeneratorIgnoreGetter/GeneratorIgnoreSetter
+    - 在generatorConfig.xml中配置类注解插件
+        ```xml
+        <!--去掉getter方法-->
+        <plugin type="com.mybatis.generator.plugins.GeneratorIgnoreGetter"/>
+
+        <!--去掉setter方法-->
+        <plugin type="com.mybatis.generator.plugins.GeneratorIgnoreSetter"/>
+        ```
+    - 生成结果
+        ```java
+        没有getter setter方法
+        ```
